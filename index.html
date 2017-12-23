@@ -1,1 +1,53 @@
-Coming soon !
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h3 class="pull-right">fotosphere</h3>
+        <h3 class="pull-left">andrepeat</h6>
+        <br><br><br><br><br>
+        <ul id="instafeed"></ul>
+        <button id="load-more">
+        </button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/instafeed.min.js"></script>
+    <script type="text/javascript">
+    var loadButton = document.getElementById('load-more');
+    var feed = new Instafeed({
+        get: 'user',
+        userId: '587394280',
+        clientId: '0039ed45792d4ce1a0db41e80b21f4a7',
+        accessToken: '587394280.0039ed4.3581e6111c204badbb96543abd1813e7',
+        limit: '364',
+        // sortBy: 'most-liked',
+        // template: '<a href="{{image}}" class="popup"><img src="{{image}}"></a>{{likes}}',
+        // resolution: 'standard_resolution',
+        resolution: 'thumbnail',
+
+        // every time we load more, run this function
+        after: function() {
+            // disable button if no more results to load
+            if (!this.hasNext()) {
+                loadButton.setAttribute('disabled', 'disabled');
+            }
+        },
+    });
+
+    // bind the load more button
+    loadButton.addEventListener('click', function() {
+        feed.next();
+    });
+
+    // run our feed!
+    feed.run();
+    </script>
+</body>
+
+</html>

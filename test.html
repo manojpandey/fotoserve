@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h3 class="pull-right">fotosphere</h3>
+        <h3 class="pull-left">andrepeat</h6>
+        <br><br><br><br><br>
+        <ul id="instafeed"></ul>
+        <button id="load-more">
+        </button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="js/instafeed.min.js"></script>
+    <script type="text/javascript">
+        var feed = new Instafeed({
+            get: 'tagged',
+            tagName: 'travel',
+            userId: '587394280',
+            accessToken: '587394280.0039ed4.3581e6111c204badbb96543abd1813e7',
+            sortBy: 'most-recent',
+            limit: '100'
+        });
+        feed.run();
+    </script>
+</body>
+
+</html>
