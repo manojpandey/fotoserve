@@ -1,3 +1,3 @@
 # fotoserve
 
-Test app for instagram media fetching
+Test app for instagram media fetching.
